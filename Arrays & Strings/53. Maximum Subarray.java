@@ -1,4 +1,7 @@
 class Solution {
+
+    // Kadane's Algorithm
+     
     public int maxSubArray(int[] nums) {
         int profit= nums[0];
         int n = nums.length;
