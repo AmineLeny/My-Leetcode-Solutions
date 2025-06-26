@@ -13,15 +13,14 @@ class Solution {
         ListNode dummy = new ListNode();
         ListNode res = dummy;
         if( lists.length ==0  ) return res.next;
-        PriorityQueue<Integer> pq = new PriorityQueue<>( (a,b)-> a-b );
+        PriorityQueue<ListNode> pq = new PriorityQueue<>( (a,b)-> a.val-b.val );
         for( ListNode l : lists ) { 
-            while (l!= null ) { 
-                pq.add(l.val);
-                l = l.next;
-            }
+          if(l!= null)pq.add(l);
         }
         while( ! pq.isEmpty() ) { 
-            dummy.next = new ListNode(pq.poll());
+            ListNode polled = pq.poll();
+            dummy.next = polled;
+            if(polled.next!=null) pq.add(polled.next);
             dummy = dummy.next;
         }
         return res.next;
