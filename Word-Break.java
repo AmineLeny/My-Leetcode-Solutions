@@ -13,7 +13,6 @@ class Solution {
                 }
             }
         }
-        for ( int d : dp) System.out.print(d +"|");
         return dp[s.length()]==1;
     }
 }
