@@ -12,19 +12,17 @@ class Solution:
         if node is None:
             return None
         queue = [node]
-        s = set()
         m = {}
-        while queue != []  :
+        while queue  :
             e = queue.pop()
-            if e not in s:
-                s.add(e)
-                if  e not in m:
-                    m[e]= Node(e.val)
-                for nei in e.neighbors:
-                    if nei not in m:
-                        m[nei] = Node(nei.val)
-                    m[e].neighbors.append(m[nei])
+            if e not in m:
+                m[e]= Node(e.val)
+            for nei in e.neighbors:
+                if nei not in m:
+                    m[nei] = Node(nei.val)
                     queue.append(nei)
+                m[e].neighbors.append(m[nei])
+                   
         return m[node]
             
 
