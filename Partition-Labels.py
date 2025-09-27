@@ -1,9 +1,6 @@
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        last = {char : -1 for char in s}
-        horizon = 0
-        for index,char in enumerate(s) : 
-            last[char] =index
+        last = {char : i for i, char in enumerate(s)}
         res = []
         start = 0
         end = 0
